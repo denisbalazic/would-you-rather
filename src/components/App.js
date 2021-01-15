@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { handleInitialData } from "../actions/shared";
 import { Switch, Route } from "react-router-dom";
 import Navigation from "./Navigation";
 import Login from "./Login";
@@ -8,7 +10,10 @@ import DetailedQuestion from "./DetailedQuestion";
 import AddQuestion from "./AddQuestion";
 import LeaderBoard from "./LeaderBoard";
 
-export default class App extends Component {
+class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(handleInitialData);
+  }
   render() {
     return (
       <div>
@@ -25,3 +30,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default connect()(App);
