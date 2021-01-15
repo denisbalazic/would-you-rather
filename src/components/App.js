@@ -12,7 +12,7 @@ import LeaderBoard from "./LeaderBoard";
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData);
+    this.props.dispatch(handleInitialData());
   }
   render() {
     return (

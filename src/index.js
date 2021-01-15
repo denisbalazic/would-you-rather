@@ -11,10 +11,10 @@ import middleware from "./middleware";
 const store = createStore(reducer, middleware);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
+  <Router>
+    <Provider store={store}>
       <App />
-    </Router>
-  </Provider>,
+    </Provider>
+  </Router>,
   document.getElementById("root")
 );
