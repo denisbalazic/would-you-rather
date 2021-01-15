@@ -3,15 +3,14 @@ import { receiveQuestions } from "../actions/questions";
 import { receiveUsers } from "../actions/users";
 import { setAuthedUser } from "../actions/authedUser";
 
-const AUTHED_ID = "denis"
+export const AUTHED_ID = "denis";
 
-expoort function handleInitialData () {
+export function handleInitialData() {
   return (dispatch) => {
-    return getInitialData()
-    .then(({questions, users }) => {
-      dispatch(receiveQuestions(questions))
-      dispatch(receiveUsers(users))
-      dispatch(setAuthedUser(AUTHED_ID))
-    })
-  }
+    return getInitialData().then(({ questions, users }) => {
+      dispatch(receiveQuestions(questions));
+      dispatch(receiveUsers(users));
+      dispatch(setAuthedUser(AUTHED_ID));
+    });
+  };
 }
