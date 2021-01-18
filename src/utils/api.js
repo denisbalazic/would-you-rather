@@ -4,6 +4,7 @@ import {
   _getUser,
   _saveQuestion,
   _saveQuestionAnswer,
+  _updateUser,
 } from "../utils/data";
 
 export function getInitialData() {
@@ -15,4 +16,8 @@ export function getInitialData() {
 
 export function getUser(id) {
   return _getUser(id).then((user) => user);
+}
+
+export function saveQuestionAnswer(authedUserId, questionId, option) {
+  return _saveQuestionAnswer({ authedUserId, questionId, option }).then(() => {});
 }

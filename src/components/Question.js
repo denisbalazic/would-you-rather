@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Question extends Component {
   render() {
@@ -11,6 +12,7 @@ export default class Question extends Component {
         <p>{optionTwo.text}</p>
         <p>{id}</p>
         <p>{timestamp}</p>
+        <Link to={"/questions/" + id}>More</Link>
       </div>
     );
   }
