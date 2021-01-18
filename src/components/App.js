@@ -9,6 +9,7 @@ import QuestionList from "./QuestionList";
 import DetailedQuestion from "./DetailedQuestion";
 import AddQuestion from "./AddQuestion";
 import LeaderBoard from "./LeaderBoard";
+import NotFound from "./NotFound";
 
 class App extends Component {
   componentDidMount() {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path="/questions/:questionId" component={DetailedQuestion} />
           <Route exact path="/add" component={AddQuestion} />
           <Route exact path="/leaderboard" component={LeaderBoard} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </div>
     );

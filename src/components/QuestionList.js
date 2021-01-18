@@ -27,10 +27,9 @@ class QuestionList extends Component {
       selectedQuestions.sort((a, b) => b.timestamp - a.timestamp);
     }
     return (
-      <div>
+      <div className="questionlist">
         <button onClick={this.showUnanswered}>Unanswered</button>
         <button onClick={this.showAnswered}>Answered</button>
-        QuestionList:
         {selectedQuestions.map((question) => (
           <Question key={question.id} question={question} />
         ))}
