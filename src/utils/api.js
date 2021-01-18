@@ -21,3 +21,7 @@ export function getUser(id) {
 export function saveQuestionAnswer(authedUserId, questionId, option) {
   return _saveQuestionAnswer({ authedUserId, questionId, option }).then(() => {});
 }
+
+export function saveNewQuestion(optionOneText, optionTwoText, author) {
+  return _saveQuestion({ optionOneText, optionTwoText, author }).then((question) => question);
+}

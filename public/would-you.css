@@ -54,3 +54,20 @@ i {
   align-self: center;
   text-align: center;
 }
+
+.new-question-form form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 30px auto;
+}
+
+.new-question-form textarea {
+  margin: auto;
+  border: 1px solid #8127b9;
+  border-radius: 6px;
+}
+
+.new-question-form small {
+  margin: auto;
+}

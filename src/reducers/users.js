@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, UPDATE_USER_VOTE } from "../actions/users";
+import { RECEIVE_USERS, UPDATE_USER_VOTE, UPDATE_USER_QUESTIONS } from "../actions/users";
 
 export default function users(state = {}, action) {
   switch (action.type) {
@@ -16,6 +16,14 @@ export default function users(state = {}, action) {
             ...state[action.authedUserId].answers,
             [action.questionId]: action.option,
           },
+        },
+      };
+    case UPDATE_USER_QUESTIONS:
+      return {
+        ...state,
+        [action.userId]: {
+          ...state[action.userId],
+          questions: state[action.userId].questions.concat(action.questionId),
         },
       };
     default:

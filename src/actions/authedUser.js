@@ -1,6 +1,7 @@
 import { getUser } from "../utils/api";
 export const SET_AUTHED_USER = "SET_AUTHED_USER";
 export const UPDATE_AUTHEDUSER_VOTE = "UPDATE_AUTHEDUSER_VOTE";
+export const UPDATE_AUTHEDUSER_QUESTIONS = "UPDATE_AUTHEDUSER_QUESTIONS";
 
 // Ask if this is OK????
 export function setAuthedUser(id) {
@@ -19,5 +20,12 @@ export function updateAuthedUserVote(questionId, option) {
     type: UPDATE_AUTHEDUSER_VOTE,
     questionId,
     option,
+  };
+}
+
+export function updateAuthedUserQuestions(questionId) {
+  return {
+    type: UPDATE_AUTHEDUSER_QUESTIONS,
+    questionId,
   };
 }
