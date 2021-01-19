@@ -1,13 +1,30 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import BoardEntry from "./BoardEntry";
 
-export default class LeaderBoard extends Component {
+class LeaderBoard extends Component {
   render() {
+    const { users } = this.props;
     return (
       <div>
-        LeaderBoard
-        <BoardEntry />
+        {Object.values(users)
+          .sort(
+            (a, b) =>
+              Object.keys(b.answers).length +
+              b.questions.length -
+              Object.keys(a.answers).length -
+              a.questions.length
+          )
+          .map((user) => (
+            <BoardEntry user={user} />
+          ))}
       </div>
     );
   }
 }
+
+function mapStateToProps({ users }) {
+  return { users };
+}
+
+export default connect(mapStateToProps)(LeaderBoard);

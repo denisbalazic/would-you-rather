@@ -71,3 +71,29 @@ i {
 .new-question-form small {
   margin: auto;
 }
+
+.score-card {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 16px;
+  padding: 8px;
+  height: 3em;
+  border: 1px solid #8127b9;
+  border-radius: 6px;
+}
+
+.score-card .name {
+  margin-right: auto;
+}
+
+.score,
+.score-sum {
+  justify-self: flex-end;
+  font-size: 1.6em;
+  color: #8127b9;
+}
+
+.score-sum {
+  font-size: 2.2em;
+}
