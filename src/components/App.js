@@ -13,24 +13,34 @@ import NotFound from "./NotFound";
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData());
+    if (this.props.loading) {
+      this.props.dispatch(handleInitialData());
+    }
   }
   render() {
     return (
       <div>
         <Navigation />
-        <Switch>
-          <Route exact path="/" component={QuestionList} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/questions/:questionId" component={DetailedQuestion} />
-          <Route exact path="/add" component={AddQuestion} />
-          <Route exact path="/leaderboard" component={LeaderBoard} />
-          <Route path="*" component={NotFound} />
-        </Switch>
+        {this.props.loading ? null : (
+          <Switch>
+            <Route exact path="/" component={QuestionList} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/questions/:questionId" component={DetailedQuestion} />
+            <Route exact path="/add" component={AddQuestion} />
+            <Route exact path="/leaderboard" component={LeaderBoard} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        )}
       </div>
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps({ authedUser }) {
+  return {
+    loading: authedUser === null,
+  };
+}
+
+export default connect(mapStateToProps)(App);
