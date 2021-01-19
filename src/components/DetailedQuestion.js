@@ -8,29 +8,35 @@ class DetailedQuestion extends Component {
   };
   render() {
     const { questions, authedUser, match } = this.props;
-    const question = Object.values(questions).find((q) => q.id === match.params.questionId);
+    const question = questions.find((q) => q.id === match.params.questionId);
     const { author, optionOne, optionTwo, id, timestamp } = question;
     const isAnswered = Object.keys(authedUser.answers).indexOf(id) >= 0;
     let option;
     isAnswered && (option = authedUser.answers[id]);
     return (
-      <div>
-        <div className="question">
-          <div className="question-info">
-            <p>Asked by: {author}</p>
-            <p className="question-date">{new Date(timestamp).toLocaleDateString()}</p>
-          </div>
-          <div className="question-text">
-            <div className="question-option">
-              <p>{optionOne.text}</p>
+      <div className="question">
+        <div className="question-info">
+          <p>Asked by: {author}</p>
+          <p className="question-date">{new Date(timestamp).toLocaleDateString()}</p>
+        </div>
+        <div className="question-text">
+          <div className="question-option">
+            <p>{optionOne.text}</p>
+            <div className="vote">
               <p>{option === "optionOne" ? "THIS IS ONE" : null}</p>
-              <button onClick={() => this.handleVote(id, "optionOne")}>opt1</button>
+              {!isAnswered && (
+                <button onClick={() => this.handleVote(id, "optionOne")}>opt1</button>
+              )}
             </div>
-            <small>-or-</small>
-            <div className="question-option">
-              <p>{optionTwo.text}</p>
+          </div>
+          <small>-or-</small>
+          <div className="question-option">
+            <p>{optionTwo.text}</p>
+            <div className="vote">
               <p>{option === "optionTwo" ? "THIS IS ONE" : null}</p>
-              <button onClick={() => this.handleVote(id, "optionTwo")}>opt2</button>
+              {!isAnswered && (
+                <button onClick={() => this.handleVote(id, "optionTwo")}>opt2</button>
+              )}
             </div>
           </div>
         </div>
@@ -41,7 +47,7 @@ class DetailedQuestion extends Component {
 
 function mapStateToProps({ questions, authedUser }) {
   return {
-    questions,
+    questions: Object.values(questions),
     authedUser,
   };
 }
