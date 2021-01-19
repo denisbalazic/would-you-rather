@@ -1,4 +1,9 @@
-import { getInitialData, saveQuestionAnswer, saveNewQuestion } from "../utils/api";
+import {
+  getInitialData,
+  saveQuestionAnswer,
+  saveNewQuestion,
+  authenticateUser,
+} from "../utils/api";
 import { receiveQuestions, updateQuestionVote, updateQuestions } from "../actions/questions";
 import { receiveUsers, updateUserVote, updateUserQuestions } from "../actions/users";
 import {
@@ -7,14 +12,19 @@ import {
   updateAuthedUserQuestions,
 } from "../actions/authedUser";
 
-export const AUTHED_ID = "sarahedo";
-
 export function handleInitialData() {
   return (dispatch) => {
     return getInitialData().then(({ questions, users }) => {
       dispatch(receiveQuestions(questions));
       dispatch(receiveUsers(users));
-      dispatch(setAuthedUser(AUTHED_ID));
+    });
+  };
+}
+
+export function handleLogin(username) {
+  return (dispatch) => {
+    return authenticateUser(username).then((user) => {
+      dispatch(setAuthedUser(user));
     });
   };
 }

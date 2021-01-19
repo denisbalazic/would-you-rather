@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-export default class Navigation extends Component {
+class Navigation extends Component {
   render() {
-    return (
-      <div>
+    if (this.props.authedUser) {
+      console.log(this.props.authedUser);
+      return (
         <nav>
           <div className="menu">
             <ul>
@@ -22,18 +24,36 @@ export default class Navigation extends Component {
             </ul>
           </div>
           <div className="auth-menu">
+            <button>
+              <i className="fas fa-user-minus"></i>
+            </button>
+          </div>
+        </nav>
+      );
+    } else {
+      return (
+        <nav>
+          <div className="menu">
+            <NavLink exact to="/">
+              Home
+            </NavLink>
+          </div>
+          <div className="auth-menu">
             <NavLink to="/login">
               <i className="fas fa-user-ninja"></i>
             </NavLink>
             <NavLink to="/register">
               <i className="fas fa-user-plus"></i>
             </NavLink>
-            <NavLink to="/">
-              <i className="fas fa-user-minus"></i>
-            </NavLink>
           </div>
         </nav>
-      </div>
-    );
+      );
+    }
   }
 }
+
+function mapStateToProps({ authedUser }) {
+  return { authedUser };
+}
+
+export default connect(mapStateToProps)(Navigation);

@@ -131,10 +131,10 @@ export function _getUser(id) {
   });
 }
 
-export function _updateUser(user) {
-  users[user.id] = user;
+export function _authenticateUser(user) {
+  const foundUser = Object.values(users).find((u) => u.id === user.username);
   return new Promise((res, rej) => {
-    setTimeout(() => res(), 1000);
+    setTimeout(() => res(foundUser), 1000);
   });
 }
 

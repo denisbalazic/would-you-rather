@@ -1,17 +1,11 @@
-import { getUser } from "../utils/api";
 export const SET_AUTHED_USER = "SET_AUTHED_USER";
 export const UPDATE_AUTHEDUSER_VOTE = "UPDATE_AUTHEDUSER_VOTE";
 export const UPDATE_AUTHEDUSER_QUESTIONS = "UPDATE_AUTHEDUSER_QUESTIONS";
 
-// Ask if this is OK????
-export function setAuthedUser(id) {
-  return (dispatch) => {
-    return getUser(id).then((user) => {
-      dispatch({
-        type: SET_AUTHED_USER,
-        user,
-      });
-    });
+export function setAuthedUser(user) {
+  return {
+    type: SET_AUTHED_USER,
+    user,
   };
 }
 

@@ -1,10 +1,9 @@
 import {
   _getQuestions,
   _getUsers,
-  _getUser,
   _saveQuestion,
   _saveQuestionAnswer,
-  _updateUser,
+  _authenticateUser,
 } from "../utils/data";
 
 export function getInitialData() {
@@ -14,8 +13,10 @@ export function getInitialData() {
   }));
 }
 
-export function getUser(id) {
-  return _getUser(id).then((user) => user);
+export function authenticateUser(username) {
+  return _authenticateUser({ username }).then((user) => {
+    return user;
+  });
 }
 
 export function saveQuestionAnswer(authedUserId, questionId, option) {
