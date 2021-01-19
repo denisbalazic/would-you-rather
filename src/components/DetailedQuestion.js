@@ -10,11 +10,16 @@ class DetailedQuestion extends Component {
     const { questions, authedUser, match } = this.props;
     const question = questions.find((q) => q.id === match.params.questionId);
     const { author, optionOne, optionTwo, id, timestamp } = question;
+    const opt1votes = optionOne.votes.length;
+    const opt2votes = optionTwo.votes.length;
+    const opt1perc = opt1votes / (opt1votes + opt2votes);
+    const opt2perc = opt2votes / (opt1votes + opt2votes);
     const isAnswered = Object.keys(authedUser.answers).indexOf(id) >= 0;
     let option;
     isAnswered && (option = authedUser.answers[id]);
     return (
       <div className="question">
+        <h1>Would you rather...</h1>
         <div className="question-info">
           <p>Asked by: {author}</p>
           <p className="question-date">{new Date(timestamp).toLocaleDateString()}</p>
@@ -40,6 +45,14 @@ class DetailedQuestion extends Component {
             </div>
           </div>
         </div>
+        {isAnswered && (
+          <div className="question-stats">
+            <p>{opt1votes}</p>
+            <p>{opt1perc}</p>
+            <p>{opt2votes}</p>
+            <p>{opt2perc}</p>
+          </div>
+        )}
       </div>
     );
   }
