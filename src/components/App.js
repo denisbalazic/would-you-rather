@@ -22,7 +22,7 @@ class App extends Component {
         <Navigation />
         {this.props.loading ? null : (
           <Switch>
-            <PrivateRoute exact path="/" component={QuestionList} />
+            <Route exact path="/" component={QuestionList} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <PrivateRoute exact path="/questions/:questionId" component={DetailedQuestion} />

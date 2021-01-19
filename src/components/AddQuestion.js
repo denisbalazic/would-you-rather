@@ -19,6 +19,7 @@ class AddQuestion extends Component {
   render() {
     return (
       <div className="new-question-form">
+        <h1>Would you rather...</h1>
         <form action="" onSubmit={this.handleSubmit}>
           <textarea
             name="optionOne"
