@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { logout } from "../actions/authedUser";
+import { handleLogout } from "../actions/auth";
 
 class Navigation extends Component {
   handleLogout = () => {
-    this.props.dispatch(logout());
+    this.props.dispatch(handleLogout());
   };
   render() {
     if (this.props.authedUser) {

@@ -1,3 +1,5 @@
+import jwt from "jsonwebtoken";
+
 let users = {
   sarahedo: {
     id: "sarahedo",
@@ -119,29 +121,14 @@ function generateUID() {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
 
-export function _getUsers() {
-  return new Promise((res, rej) => {
-    setTimeout(() => res({ ...users }), 1000);
-  });
-}
-
-export function _getUser(id) {
-  return new Promise((res, rej) => {
-    setTimeout(() => res(users[id]), 1000);
-  });
-}
-
-export function _authenticateUser(user) {
-  const foundUser = Object.values(users).find((u) => u.id === user.username);
-  return new Promise((res, rej) => {
-    setTimeout(() => res(foundUser), 1000);
-  });
-}
-
-export function _getQuestions() {
-  return new Promise((res, rej) => {
-    setTimeout(() => res({ ...questions }), 1000);
-  });
+function formatUser({ username, name, password }) {
+  return {
+    id: username,
+    name: name,
+    avatarURL: "",
+    answers: {},
+    questions: [],
+  };
 }
 
 function formatQuestion({ optionOneText, optionTwoText, author }) {
@@ -158,6 +145,51 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
       text: optionTwoText,
     },
   };
+}
+
+export function _register(user) {
+  return new Promise((res, rej) => {
+    const formatedUser = formatUser(user);
+    console.log(formatedUser);
+    const token = jwt.sign(formatedUser, "SuperSECRET");
+    const data = {
+      user: formatedUser,
+      accessToken: token,
+    };
+    setTimeout(() => {
+      users = {
+        ...users,
+        [formatedUser.id]: formatedUser,
+      };
+      console.log(data);
+      res({ data });
+    }, 1000);
+  });
+}
+
+export function _login(user) {
+  return new Promise((res, rej) => {
+    const foundUser = Object.values(users).find((u) => u.id === user.username);
+    const token = jwt.sign(foundUser, "SuperSECRET");
+    const data = {
+      user: foundUser,
+      accessToken: token,
+    };
+    console.log(data);
+    foundUser.accessToken = setTimeout(() => res({ data }), 1000);
+  });
+}
+
+export function _getUsers() {
+  return new Promise((res, rej) => {
+    setTimeout(() => res({ ...users }), 1000);
+  });
+}
+
+export function _getQuestions() {
+  return new Promise((res, rej) => {
+    setTimeout(() => res({ ...questions }), 1000);
+  });
 }
 
 export function _saveQuestion(question) {

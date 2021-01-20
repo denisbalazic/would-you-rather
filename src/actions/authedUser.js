@@ -1,18 +1,11 @@
 export const SET_AUTHED_USER = "SET_AUTHED_USER";
 export const UPDATE_AUTHEDUSER_VOTE = "UPDATE_AUTHEDUSER_VOTE";
 export const UPDATE_AUTHEDUSER_QUESTIONS = "UPDATE_AUTHEDUSER_QUESTIONS";
-export const LOGOUT = "LOGOUT";
 
 export function setAuthedUser(user) {
   return {
     type: SET_AUTHED_USER,
     user,
-  };
-}
-
-export function logout() {
-  return {
-    type: LOGOUT,
   };
 }
 

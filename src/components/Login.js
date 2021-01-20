@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { handleLogin } from "../actions/shared";
+import { handleLogin } from "../actions/auth";
 
 class Login extends Component {
   state = {
     username: "",
+    password: "",
   };
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.dispatch(handleLogin(this.state.username));
+    this.props.dispatch(handleLogin(this.state.username, this.state.password));
   };
   render() {
     if (this.props.authedUser) {

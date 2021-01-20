@@ -1,9 +1,9 @@
 import {
   SET_AUTHED_USER,
-  LOGOUT,
   UPDATE_AUTHEDUSER_VOTE,
   UPDATE_AUTHEDUSER_QUESTIONS,
 } from "../actions/authedUser";
+import { LOGOUT } from "../actions/auth";
 
 export default function authedUser(state = null, action) {
   switch (action.type) {

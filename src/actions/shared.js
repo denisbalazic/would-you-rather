@@ -1,30 +1,13 @@
-import {
-  getInitialData,
-  saveQuestionAnswer,
-  saveNewQuestion,
-  authenticateUser,
-} from "../utils/api";
+import { getInitialData, saveQuestionAnswer, saveNewQuestion } from "../services/api";
 import { receiveQuestions, updateQuestionVote, updateQuestions } from "../actions/questions";
 import { receiveUsers, updateUserVote, updateUserQuestions } from "../actions/users";
-import {
-  setAuthedUser,
-  updateAuthedUserVote,
-  updateAuthedUserQuestions,
-} from "../actions/authedUser";
+import { updateAuthedUserVote, updateAuthedUserQuestions } from "../actions/authedUser";
 
 export function handleInitialData() {
   return (dispatch) => {
     return getInitialData().then(({ questions, users }) => {
       dispatch(receiveQuestions(questions));
       dispatch(receiveUsers(users));
-    });
-  };
-}
-
-export function handleLogin(username) {
-  return (dispatch) => {
-    return authenticateUser(username).then((user) => {
-      dispatch(setAuthedUser(user));
     });
   };
 }
