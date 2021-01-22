@@ -1,0 +1,255 @@
+/*********** General *************/
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1 {
+  margin: 20px;
+  font-size: 3em;
+  color: #12aaca;
+  text-align: center;
+}
+
+/*********** Navigation ***********/
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 2em;
+  padding: 5px 10px 5px 25px;
+  background-color: #8127b9;
+  color: white;
+  font-size: 1.3em;
+}
+
+nav .menu ul {
+  display: flex;
+  height: 100%;
+}
+
+nav .menu li {
+  margin: 0 8px;
+}
+
+nav .menu .active {
+  color: #a5e6ba;
+}
+
+nav .auth-menu {
+  display: flex;
+  align-items: baseline;
+}
+
+nav small {
+  font-size: 0.7em;
+  margin-right: 10px;
+}
+
+nav i {
+  margin: 5px;
+  font-size: 1.3em;
+}
+
+/********** Question *********/
+
+.questionlist button {
+  margin: 0 20px;
+}
+
+.question {
+  margin: 20px;
+}
+
+.question-info {
+  display: flex;
+  height: 1.5em;
+}
+
+.question .name {
+  padding: 0 20px;
+  border-radius: 10px 0 0 0;
+  background-color: #8127b9;
+  color: white;
+}
+
+.question small {
+  font-size: 0.7em;
+}
+
+.question .avatar {
+  height: 40px;
+  width: 40px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 50%;
+  border: 2px solid #8127b9;
+  background-color: #e7e0f5;
+}
+
+.question .date {
+  margin-left: auto;
+  font-size: 0.8em;
+}
+
+.question-text {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0 10px 10px 10px;
+  background-color: #e7e0f5;
+}
+
+.question-option {
+  position: relative;
+  flex: 5 40%;
+  padding: 25px;
+  align-self: center;
+  text-align: center;
+}
+
+.question-option p {
+  font-size: 1.3em;
+  color: #12aaca;
+}
+
+.question .vote button {
+  margin: 10px auto;
+  height: 2em;
+  width: 4em;
+  border: 2px solid #8127b9;
+  border-radius: 10px;
+  background-color: #12aaca;
+}
+
+.question .vote i {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  font-size: 2em;
+  color: #8127b9;
+}
+
+/******** Question-stats ***********/
+.question-stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  border-radius: 10px;
+  background-color: #e7e0f5;
+}
+
+.question-stats .option {
+  display: flex;
+}
+.question-stats .option.one {
+  background-color: #8127b9;
+  color: white;
+}
+.question-stats .option.two {
+  background-color: #12aaca;
+  color: white;
+}
+.question-stats .option p {
+  margin: 0 12px;
+}
+
+.new-question-form form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 30px auto;
+}
+
+.new-question-form textarea {
+  margin: auto;
+  border: 1px solid #8127b9;
+  border-radius: 6px;
+}
+
+.new-question-form small {
+  margin: auto;
+}
+
+.score-card {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 16px;
+  padding: 8px;
+  height: 3em;
+  border: 1px solid #8127b9;
+  border-radius: 6px;
+}
+
+.score-card .name {
+  margin-right: auto;
+}
+
+.score,
+.score-sum {
+  justify-self: flex-end;
+  font-size: 1.6em;
+  color: #8127b9;
+}
+
+.score-sum {
+  font-size: 2.2em;
+}
+
+/************* Login and register ********/
+form {
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.form-control {
+  margin-bottom: 5px;
+}
+
+.form-control label {
+  display: block;
+}
+
+.form-control input {
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #8127b9;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 1.2rem;
+}
+
+.form-control input:focus {
+  border-color: var(--prussian-blue);
+}
+
+.form-control.success input {
+  border-color: var(--success-green);
+}
+
+.form-control.error input {
+  border-color: var(--imperial-red);
+}
+
+.form-control .error-msg {
+  height: 1.4rem;
+  color: var(--imperial-red);
+  font-size: 0.8rem;
+}
+
+form button {
+  height: 2.5rem;
+  width: 100%;
+  margin-top: 1rem;
+  border: 2px solid #8127b9;
+  border-radius: 5px;
+  background-color: #e7e0f5;
+  font-size: 1.1rem;
+  transition: 0.2s;
+}
+
+form button:hover {
+  background-color: #8127b9;
+  color: white;
+}

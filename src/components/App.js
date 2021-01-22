@@ -11,6 +11,7 @@ import DetailedQuestion from "./DetailedQuestion";
 import AddQuestion from "./AddQuestion";
 import LeaderBoard from "./LeaderBoard";
 import NotFound from "./NotFound";
+import "./App.css";
 
 class App extends Component {
   componentDidMount() {

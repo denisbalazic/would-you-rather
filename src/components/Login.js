@@ -22,12 +22,25 @@ class Login extends Component {
       return (
         <div>
           <form action="" onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              onChange={this.handleChange}
-            />
+            <div className="form-control">
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="form-control">
+              <label htmlFor="password">Password</label>
+              <input
+                type="text"
+                name="password"
+                placeholder="Password"
+                onChange={this.handleChange}
+              />
+            </div>
+
             <button>Login</button>
           </form>
         </div>

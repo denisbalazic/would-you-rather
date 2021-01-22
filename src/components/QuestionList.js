@@ -36,6 +36,7 @@ class QuestionList extends Component {
       <div className="questionlist">
         <button onClick={this.showUnanswered}>Unanswered</button>
         <button onClick={this.showAnswered}>Answered</button>
+        <h1>Would you rather...?</h1>
         {selectedQuestions.map((question) => (
           <Question key={question.id} question={question} />
         ))}

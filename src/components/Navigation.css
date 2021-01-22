@@ -1,0 +1,25 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 2em;
+  background-color: #8127b9;
+  color: white;
+  font-size: 1.3em;
+}
+
+nav .menu ul {
+  display: flex;
+}
+
+nav .menu li {
+  margin: 8px;
+}
+
+nav .menu .active {
+  color: #a5e6ba;
+}
+
+i {
+  margin: 5px;
+  font-size: 1.3em;
+}

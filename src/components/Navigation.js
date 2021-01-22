@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { handleLogout } from "../actions/auth";
+// import "./Navigation.css";
 
 class Navigation extends Component {
   handleLogout = () => {
@@ -10,7 +11,7 @@ class Navigation extends Component {
   render() {
     if (this.props.authedUser) {
       return (
-        <nav>
+        <nav className="Navigation">
           <div className="menu">
             <ul>
               <li>
@@ -26,7 +27,9 @@ class Navigation extends Component {
               </li>
             </ul>
           </div>
+
           <div className="auth-menu">
+            <small>{this.props.authedUser.name}</small>
             <button onClick={this.handleLogout}>
               <i className="fas fa-user-minus"></i>
             </button>

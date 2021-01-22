@@ -7,8 +7,12 @@ export default class Question extends Component {
     return (
       <div className="question">
         <div className="question-info">
-          <p>Asked by: {author}</p>
-          <p className="question-date">{new Date(timestamp).toLocaleDateString()}</p>
+          <p className="name">
+            <small>Asked by: </small>
+            {author}
+          </p>
+          <div className="avatar"></div>
+          <p className="date">{new Date(timestamp).toLocaleDateString()}</p>
         </div>
         <Link to={"/questions/" + id}>
           <div className="question-text">
