@@ -121,11 +121,24 @@ function generateUID() {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
 
+function addAvatar() {
+  function zeroPad(num) {
+    let numZeropad = num + "";
+    while (numZeropad.length < 3) {
+      numZeropad = "0" + numZeropad;
+    }
+    return numZeropad;
+  }
+  const rand = zeroPad(Math.ceil(Math.random() * 50));
+  const gender = rand % 2 === 0 ? "woman" : "man";
+  return `/images/${rand}-${gender}.png`;
+}
+
 function formatUser({ username, name, password }) {
   return {
     id: username,
     name: name,
-    avatarURL: "",
+    avatarURL: addAvatar(),
     answers: {},
     questions: [],
   };
