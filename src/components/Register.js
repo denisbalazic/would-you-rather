@@ -62,7 +62,7 @@ class Register extends Component {
       // });
       // if (res.success) {
       //   //TODO: handle successful registration with message
-      //   this.setState({ shouldRedirect: true });
+      this.setState({ shouldRedirect: true });
       // } else {
       //   this.setResponseErrors(res.error.message);
       // }
@@ -72,7 +72,7 @@ class Register extends Component {
   render() {
     const { username, name, password } = this.state.fields;
     if (this.state.shouldRedirect) {
-      return <Redirect to="/combinations" />;
+      return <Redirect to="/" />;
     } else {
       return (
         <main>

@@ -4,7 +4,7 @@ import Question from "./Question";
 
 //filter questions based on showAnswered state and authedUser answers
 function selectQuestions(questions, answered, showAnswered) {
-  if (questions.length > 0 && answered.length > 0) {
+  if (questions.length > 0 && answered) {
     return questions
       .filter((q) => {
         if (showAnswered) {
@@ -32,11 +32,12 @@ class QuestionList extends Component {
   render() {
     const { questions, answered } = this.props;
     const selectedQuestions = selectQuestions(questions, answered, this.state.showAnswered);
+    console.log(selectedQuestions);
     return (
       <div className="questionlist">
         <button onClick={this.showUnanswered}>Unanswered</button>
         <button onClick={this.showAnswered}>Answered</button>
-        <h1>Would you rather...?</h1>
+        <h1>Would you rather...</h1>
         {selectedQuestions.map((question) => (
           <Question key={question.id} question={question} />
         ))}

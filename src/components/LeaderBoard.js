@@ -16,7 +16,7 @@ class LeaderBoard extends Component {
               a.questions.length
           )
           .map((user) => (
-            <BoardEntry user={user} />
+            <BoardEntry key={user.id} user={user} />
           ))}
       </div>
     );

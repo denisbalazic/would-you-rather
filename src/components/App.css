@@ -160,6 +160,7 @@ nav i {
 
 .new-question-form textarea {
   margin: auto;
+  padding: 10px;
   border: 1px solid #8127b9;
   border-radius: 6px;
 }

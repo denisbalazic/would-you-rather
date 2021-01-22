@@ -11,14 +11,20 @@ export default class Question extends Component {
             <small>Asked by: </small>
             {author}
           </p>
-          <div className="avatar"></div>
+          <div className="avatar">
+            <img src={"/images/023-man.png"} alt="" />
+          </div>
           <p className="date">{new Date(timestamp).toLocaleDateString()}</p>
         </div>
         <Link to={"/questions/" + id}>
           <div className="question-text">
-            <p className="question-option">{optionOne.text}</p>
+            <div className="question-option">
+              <p>...{optionOne.text}?</p>
+            </div>
             <small>-or-</small>
-            <p className="question-option">{optionTwo.text}</p>
+            <div className="question-option">
+              <p>...{optionTwo.text}?</p>
+            </div>
           </div>
         </Link>
       </div>
