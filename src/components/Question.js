@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default class Question extends Component {
   render() {
@@ -29,3 +30,13 @@ export default class Question extends Component {
     );
   }
 }
+
+Question.propTypes = {
+  question: PropTypes.exact({
+    id: PropTypes.string.isRequired,
+    timestamp: PropTypes.number.isRequired,
+    author: PropTypes.string.isRequired,
+    optionOne: PropTypes.object.isRequired,
+    optionTwo: PropTypes.object.isRequired,
+  }).isRequired,
+};

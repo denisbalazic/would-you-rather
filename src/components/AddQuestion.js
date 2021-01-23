@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { handleNewQuestion } from "../actions/shared";
 
 class AddQuestion extends Component {
@@ -49,6 +50,10 @@ class AddQuestion extends Component {
     }
   }
 }
+
+AddQuestion.propTypes = {
+  authedUser: PropTypes.object,
+};
 
 function mapStateToProps({ authedUser }) {
   return { authedUser };

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { handleVote } from "../actions/shared";
 
 class DetailedQuestion extends Component {
@@ -76,6 +77,12 @@ class DetailedQuestion extends Component {
     );
   }
 }
+
+DetailedQuestion.propTypes = {
+  questions: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired,
+  authedUser: PropTypes.object.isRequired,
+};
 
 function mapStateToProps({ questions, users, authedUser }) {
   return {

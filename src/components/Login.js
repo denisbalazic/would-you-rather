@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { handleLogin } from "../actions/auth";
@@ -48,6 +49,10 @@ class Login extends Component {
     }
   }
 }
+
+Login.propTypes = {
+  authedUser: PropTypes.object,
+};
 
 function mapStateToProps({ authedUser }) {
   return { authedUser };

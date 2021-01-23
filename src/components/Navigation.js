@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { handleLogout } from "../actions/auth";
+import PropTypes from "prop-types";
+
 // import "./Navigation.css";
 
 class Navigation extends Component {
@@ -57,6 +59,10 @@ class Navigation extends Component {
     }
   }
 }
+
+Navigation.propTypes = {
+  authedUser: PropTypes.object,
+};
 
 function mapStateToProps({ authedUser }) {
   return { authedUser };

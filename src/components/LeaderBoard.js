@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import BoardEntry from "./BoardEntry";
 
 class LeaderBoard extends Component {
@@ -22,6 +23,10 @@ class LeaderBoard extends Component {
     );
   }
 }
+
+LeaderBoard.propTypes = {
+  users: PropTypes.object.isRequired,
+};
 
 function mapStateToProps({ users }) {
   return { users };

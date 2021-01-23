@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Question from "./Question";
 
 //filter questions based on showAnswered state and authedUser answers
@@ -45,6 +46,11 @@ class QuestionList extends Component {
     );
   }
 }
+
+QuestionList.propTypes = {
+  questions: PropTypes.array.isRequired,
+  answered: PropTypes.array.isRequired,
+};
 
 function mapStateToProps({ questions, authedUser }) {
   return {
