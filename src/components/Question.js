@@ -11,9 +11,7 @@ export default class Question extends Component {
             <small>Asked by: </small>
             {author}
           </p>
-          <div className="avatar">
-            <img src={"/images/023-man.png"} alt="" />
-          </div>
+
           <p className="date">{new Date(timestamp).toLocaleDateString()}</p>
         </div>
         <Link to={"/questions/" + id}>

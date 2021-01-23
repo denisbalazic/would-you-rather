@@ -65,7 +65,7 @@ nav i {
 
 .question .name {
   padding: 0 20px;
-  border-radius: 10px 0 0 0;
+  border-radius: 10px 10px 0 0;
   background-color: #8127b9;
   color: white;
 }
@@ -75,10 +75,11 @@ nav i {
 }
 
 .question .avatar {
-  height: 40px;
-  width: 40px;
-  margin-left: -10px;
-  margin-top: -10px;
+  height: 50px;
+  width: 50px;
+  margin-left: -15px;
+  margin-top: -15px;
+  overflow: hidden;
   border-radius: 50%;
   border: 2px solid #8127b9;
   background-color: #e7e0f5;

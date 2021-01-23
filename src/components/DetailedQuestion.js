@@ -7,9 +7,11 @@ class DetailedQuestion extends Component {
     this.props.dispatch(handleVote(this.props.authedUser.id, questionId, option));
   };
   render() {
-    const { questions, authedUser, match } = this.props;
+    const { questions, users, authedUser, match } = this.props;
     const question = questions.find((q) => q.id === match.params.questionId);
     const { author, optionOne, optionTwo, id, timestamp } = question;
+    const user = users.find((u) => u.id === author);
+    const { name, avatarURL } = user;
     const opt1votes = optionOne.votes.length;
     const opt2votes = optionTwo.votes.length;
     const sumvotes = opt1votes + opt2votes;
@@ -24,9 +26,11 @@ class DetailedQuestion extends Component {
         <div className="question-info">
           <p className="name">
             <small>Asked by: </small>
-            {author}
+            {name}
           </p>
-          <div className="avatar"></div>
+          <div className="avatar">
+            <img src={avatarURL} alt="" />
+          </div>
           <p className="date">{new Date(timestamp).toLocaleDateString()}</p>
         </div>
         <div className="question-text">
@@ -73,9 +77,10 @@ class DetailedQuestion extends Component {
   }
 }
 
-function mapStateToProps({ questions, authedUser }) {
+function mapStateToProps({ questions, users, authedUser }) {
   return {
     questions: Object.values(questions),
+    users: Object.values(users),
     authedUser,
   };
 }
