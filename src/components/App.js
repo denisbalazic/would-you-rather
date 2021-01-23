@@ -11,6 +11,7 @@ import DetailedQuestion from "./DetailedQuestion";
 import AddQuestion from "./AddQuestion";
 import LeaderBoard from "./LeaderBoard";
 import NotFound from "./NotFound";
+import LoadingBar from "react-redux-loading-bar";
 import "./App.css";
 
 class App extends Component {
@@ -20,8 +21,10 @@ class App extends Component {
   render() {
     return (
       <div>
+        <LoadingBar />
         <Navigation />
-        {this.props.loading ? null : (
+
+        {this.props.loading === true ? null : (
           <Switch>
             <Route exact path="/" component={QuestionList} />
             <Route exact path="/register" component={Register} />
@@ -37,4 +40,10 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+function mapStateToProps({ authedUser }) {
+  return {
+    loading: authedUser === null,
+  };
+}
+
+export default connect(mapStateToProps)(App);
