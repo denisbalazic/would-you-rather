@@ -12,19 +12,22 @@ import AddQuestion from "./AddQuestion";
 import LeaderBoard from "./LeaderBoard";
 import NotFound from "./NotFound";
 import LoadingBar from "react-redux-loading-bar";
+
 import "./App.css";
+import users from "../reducers/users";
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
   render() {
-    return (
-      <div>
-        <LoadingBar />
-        <Navigation />
+    if (this.props.loading) {
+      return <LoadingBar />;
+    } else {
+      return (
+        <div>
+          <Navigation />
 
-        {this.props.loading === true ? null : (
           <Switch>
             <Route exact path="/" component={QuestionList} />
             <Route exact path="/register" component={Register} />
@@ -34,15 +37,15 @@ class App extends Component {
             <PrivateRoute exact path="/leaderboard" component={LeaderBoard} />
             <Route path="*" component={NotFound} />
           </Switch>
-        )}
-      </div>
-    );
+        </div>
+      );
+    }
   }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ users, questions }) {
   return {
-    loading: authedUser === null,
+    loading: Object.keys(users).length === 0 && Object.keys(questions).length === 0,
   };
 }
 
