@@ -201,7 +201,7 @@ export function _getUsers() {
 
 export function _getQuestions() {
   return new Promise((res, rej) => {
-    setTimeout(() => res({ ...questions }), 1000);
+    setTimeout(() => res({ ...questions }), 2000);
   });
 }
 

@@ -33,7 +33,6 @@ class QuestionList extends Component {
   render() {
     const { questions, answered } = this.props;
     const selectedQuestions = selectQuestions(questions, answered, this.state.showAnswered);
-    console.log(selectedQuestions);
     return (
       <div className="questionlist">
         <button onClick={this.showUnanswered}>Unanswered</button>
