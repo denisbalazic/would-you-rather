@@ -48,12 +48,29 @@ nav i {
   font-size: 1.3em;
 }
 
-/********** Question *********/
+/********** Question List *********/
 
 .questionlist button {
-  margin: 0 20px;
+  margin: 10px 20px;
+  border-bottom: 2px solid white;
+  cursor: pointer;
+  line-height: 1em;
+  font-size: 1.2em;
+}
+.questionlist button:hover {
+  border-bottom: 2px solid #8127b9;
+  color: #8127b9;
+}
+.questionlist button.active {
+  color: #8127b9;
+}
+.questionlist button.active:hover {
+  border-bottom: 2px solid white;
+  cursor: auto;
+  color: #8127b9;
 }
 
+/******** Question **************/
 .question {
   margin: 20px;
 }
