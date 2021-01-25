@@ -36,7 +36,7 @@ class DetailedQuestion extends Component {
         </div>
         <div className="question-text">
           <div className="question-option">
-            <p>...{optionOne.text}?</p>
+            <p className="one">...{optionOne.text}?</p>
             <div className="vote">
               {isAnswered ? (
                 option === "optionOne" && <i class="fas fa-check"></i>
@@ -47,7 +47,7 @@ class DetailedQuestion extends Component {
           </div>
           <small>-or-</small>
           <div className="question-option">
-            <p>...{optionTwo.text}?</p>
+            <p className="two">...{optionTwo.text}?</p>
             <div className="vote">
               {isAnswered ? (
                 option === "optionTwo" && <i class="fas fa-check"></i>
