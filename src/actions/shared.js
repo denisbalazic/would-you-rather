@@ -1,8 +1,13 @@
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 import { getInitialData, saveQuestionAnswer, saveNewQuestion } from "../services/api";
+import { checkAuth } from "../services/auth";
 import { receiveQuestions, updateQuestionVote, updateQuestions } from "../actions/questions";
 import { receiveUsers, updateUserVote, updateUserQuestions } from "../actions/users";
-import { updateAuthedUserVote, updateAuthedUserQuestions } from "../actions/authedUser";
+import {
+  updateAuthedUserVote,
+  updateAuthedUserQuestions,
+  setAuthedUser,
+} from "../actions/authedUser";
 
 export function handleInitialData() {
   return (dispatch) => {

@@ -21,3 +21,7 @@ export function login(username, password) {
 export function logout() {
   localStorage.removeItem("user");
 }
+
+export function checkAuth() {
+  return JSON.parse(localStorage.getItem("user")).user;
+}
