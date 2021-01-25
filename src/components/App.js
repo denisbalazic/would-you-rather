@@ -24,7 +24,7 @@ class App extends Component {
         <Navigation />
         <LoadingBar />
         <Switch>
-          <Route exact path="/" component={QuestionList} />
+          <PrivateRoute exact path="/" component={QuestionList} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/questions/:questionId" component={DetailedQuestion} />

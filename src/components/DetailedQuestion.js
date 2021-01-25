@@ -39,7 +39,7 @@ class DetailedQuestion extends Component {
             <p className="one">...{optionOne.text}?</p>
             <div className="vote">
               {isAnswered ? (
-                option === "optionOne" && <i class="fas fa-check"></i>
+                option === "optionOne" && <i className="fas fa-check"></i>
               ) : (
                 <button onClick={() => this.handleVote(id, "optionOne")}>vote</button>
               )}
@@ -50,7 +50,7 @@ class DetailedQuestion extends Component {
             <p className="two">...{optionTwo.text}?</p>
             <div className="vote">
               {isAnswered ? (
-                option === "optionTwo" && <i class="fas fa-check"></i>
+                option === "optionTwo" && <i className="fas fa-check"></i>
               ) : (
                 <button onClick={() => this.handleVote(id, "optionTwo")}>vote</button>
               )}
