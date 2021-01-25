@@ -1,10 +1,18 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+This is the final assessment project for Udacity's React & Redux course. The goal of this project is to show knowledge of basic Redux flow, using actions and reducers for managing app's state in one place - Redux store, and overall architecture of simple React-Redux app.
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+Users can login or register (no password needed, use whatever you want for password) and answer questions asked by other users given two choices. Answers are stored and all views are updated accordingly. Answered questions are displayed with data related to them. Users can ask questions themselves.
+Also there is leaderboard showing users sorted from most answered and asked questions combined.
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+The `_DATA.js` file represents a fake database and methods that let you access the data. Once refreshed in browser all new data is erased - there is no persistance of data.
+
+## Install
+
+To get started developing right away:
+
+- install all project dependencies with `npm install`
+- start the development server with `npm start`
 
 ## Data
 
@@ -46,7 +54,7 @@ Voting options are attached to questions. They include:
 | votes     | Array  | A list that contains the id of each user who voted for that option |
 | text      | String | The text of the option                                             |
 
-Your code will talk to the database via 4 methods:
+There are 4 methods to database:
 
 - `_getUsers()`
 - `_getQuestions()`
@@ -97,4 +105,4 @@ _Parameters_: Object that contains the following properties: `authedUser`, `qid`
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
+Feel free to add some features or propose changes.
