@@ -74,6 +74,10 @@ nav i {
   color: #8127b9;
 }
 
+.questionlist h4 {
+  text-align: center;
+}
+
 /******** Question **************/
 .question {
   margin: 20px;
@@ -194,7 +198,7 @@ nav i {
 }
 
 .new-question-form textarea {
-  margin: auto;
+  width: 100%;
   padding: 10px;
   border: 1px solid #8127b9;
   border-radius: 6px;
@@ -202,6 +206,10 @@ nav i {
 
 .new-question-form small {
   margin: auto;
+}
+
+.new-question-form button:disabled {
+  cursor: not-allowed;
 }
 
 /************ Leaderboard ******************/

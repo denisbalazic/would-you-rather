@@ -11,7 +11,7 @@ function selectQuestions(questions, answered, showAnswered) {
         if (showAnswered) {
           return answered.includes(q.id);
         } else {
-          return answered.includes(q.id);
+          return !answered.includes(q.id);
         }
       })
       .sort((a, b) => b.timestamp - a.timestamp);
@@ -42,6 +42,14 @@ class QuestionList extends Component {
           Answered
         </button>
         <h1>Would you rather...</h1>
+        <h4>
+          {selectedQuestions.length === 0
+            ? this.state.showAnswered
+              ? "You havent answered any questions yet"
+              : "You have answered all questions"
+            : null}
+        </h4>
+
         {selectedQuestions.map((question) => (
           <Question key={question.id} question={question} />
         ))}

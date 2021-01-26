@@ -31,7 +31,7 @@ class AddQuestion extends Component {
             <textarea
               name="optionOne"
               id=""
-              cols="50"
+              // cols="50"
               rows="4"
               onChange={this.handleChange}
             ></textarea>
@@ -39,11 +39,13 @@ class AddQuestion extends Component {
             <textarea
               name="optionTwo"
               id=""
-              cols="50"
+              // cols="50"
               rows="4"
               onChange={this.handleChange}
             ></textarea>
-            <button>Submit</button>
+            <button disabled={this.state.optionOne === "" || this.state.optionTwo === ""}>
+              Submit
+            </button>
           </form>
         </div>
       );
