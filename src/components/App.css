@@ -217,7 +217,18 @@ nav i {
 }
 
 .score-card .name {
+  margin-left: 15px;
   margin-right: auto;
+}
+
+.score-card .avatar {
+  height: 60px;
+  width: 60px;
+  margin-left: -20px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid #8127b9;
+  background-color: #e7e0f5;
 }
 
 .score,
@@ -231,7 +242,7 @@ nav i {
   font-size: 2.2em;
 }
 
-.score small {
+.score-card small {
   font-size: 0.5em;
 }
 
