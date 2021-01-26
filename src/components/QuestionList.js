@@ -9,9 +9,9 @@ function selectQuestions(questions, answered, showAnswered) {
     return questions
       .filter((q) => {
         if (showAnswered) {
-          return answered.indexOf(q.id) >= 0;
+          return answered.includes(q.id);
         } else {
-          return answered.indexOf(q.id) < 0;
+          return answered.includes(q.id);
         }
       })
       .sort((a, b) => b.timestamp - a.timestamp);

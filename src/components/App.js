@@ -16,7 +16,7 @@ import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData());
+    this.props.handleInitialData();
   }
   render() {
     return (
@@ -37,4 +37,8 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+const actionCreators = {
+  handleInitialData,
+};
+
+export default connect(null, actionCreators)(App);

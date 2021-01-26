@@ -21,8 +21,10 @@ class Login extends Component {
   };
 
   render() {
+    let prevLocation = "/";
+    this.props.location.state && (prevLocation = this.props.location.state.referrer);
     if (this.props.authedUser) {
-      return <Redirect to="/" />;
+      return <Redirect to={prevLocation} />;
     } else {
       return (
         <div>

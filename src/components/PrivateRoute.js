@@ -15,6 +15,7 @@ class PrivateRoute extends Component {
             <Redirect
               to={{
                 pathname: "/login",
+                state: { referrer: window.location.pathname },
               }}
             />
           )
