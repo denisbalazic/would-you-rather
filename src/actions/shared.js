@@ -1,6 +1,6 @@
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 import { getInitialData, saveQuestionAnswer, saveNewQuestion } from "../services/api";
-import { checkAuth } from "../services/auth";
+// import { checkAuth } from "../services/auth";
 import { receiveQuestions, updateQuestionVote, updateQuestions } from "../actions/questions";
 import { receiveUsers, updateUserVote, updateUserQuestions } from "../actions/users";
 import {

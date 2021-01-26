@@ -9,6 +9,10 @@ h1 {
   text-align: center;
 }
 
+button {
+  cursor: pointer;
+}
+
 /*********** Navigation ***********/
 nav {
   display: flex;
@@ -225,6 +229,10 @@ nav i {
 
 .score-sum {
   font-size: 2.2em;
+}
+
+.score small {
+  font-size: 0.5em;
 }
 
 /************* Login and register ********/

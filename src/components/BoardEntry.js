@@ -8,8 +8,14 @@ export default class BoardEntry extends Component {
       <div className="score-card">
         {/* <p>{avatarUrl}</p> */}
         <p className="name">{name}</p>
-        <p className="score">{questions.length}</p>
-        <p className="score">/{Object.keys(answers).length}</p>
+        <p className="score">
+          <small>asked </small>
+          {questions.length}
+        </p>
+        <p className="score">
+          /<small>answered </small>
+          {Object.keys(answers).length}
+        </p>
         <p className="score-sum">/{questions.length + Object.keys(answers).length}</p>
       </div>
     );

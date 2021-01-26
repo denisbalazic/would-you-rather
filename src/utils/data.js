@@ -163,7 +163,6 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
 export function _register(user) {
   return new Promise((res, rej) => {
     const formatedUser = formatUser(user);
-    console.log(formatedUser);
     const token = jwt.sign(formatedUser, "SuperSECRET");
     const data = {
       user: formatedUser,
@@ -174,7 +173,6 @@ export function _register(user) {
         ...users,
         [formatedUser.id]: formatedUser,
       };
-      console.log(data);
       res({ data });
     }, 1000);
   });
@@ -183,13 +181,15 @@ export function _register(user) {
 export function _login(user) {
   return new Promise((res, rej) => {
     const foundUser = Object.values(users).find((u) => u.id === user.username);
-    const token = jwt.sign(foundUser, "SuperSECRET");
-    const data = {
-      user: foundUser,
-      accessToken: token,
-    };
-    console.log(data);
-    foundUser.accessToken = setTimeout(() => res({ data }), 1000);
+    const data = {};
+    if (foundUser) {
+      const token = jwt.sign(foundUser, "SuperSECRET");
+      data.user = foundUser;
+      data.accessToken = token;
+    } else {
+      data.error = "There is no user with that username";
+    }
+    setTimeout(() => res({ data }), 1000);
   });
 }
 

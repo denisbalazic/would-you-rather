@@ -15,9 +15,14 @@ export function handleRegistration(username, name, password) {
 
 export function handleLogin(username, password) {
   return (dispatch) => {
-    return login(username, password).then((user) => {
-      dispatch(setAuthedUser(user));
-    });
+    return login(username, password)
+      .then((user) => {
+        dispatch(setAuthedUser(user || null));
+      })
+      .catch((error) => {
+        dispatch(setAuthedUser(null));
+        console.log(error);
+      });
   };
 }
 
